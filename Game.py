@@ -1,5 +1,4 @@
 import pygame, sys
-from Buttons import Button
 from Variables import *
 MenuButton=Button(0,0,placeHolder,50,50)
 

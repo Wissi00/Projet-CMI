@@ -1,13 +1,8 @@
 import pygame, sys
-from Buttons import Button
 from Game import game
 from Variables import *
 pygame.init()
 
-#Test
-
-StartButton=Button(200,225,placeHolder,100,50)
-ExitButton=Button (425,10,placeHolder,50,50)
 def menu():
 
     while True:
@@ -21,9 +16,5 @@ def menu():
             if ExitButton.drawClick():
                 print("Exit")
             pygame.display.update()
-
-
-menu()
-
 
     
