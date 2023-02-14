@@ -16,5 +16,6 @@ def menu():
             if ExitButton.drawClick():
                 print("Exit")
             pygame.display.update()
+            clock.tick(60)
 
     
