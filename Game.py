@@ -1,6 +1,8 @@
 import pygame, sys
 from Variables import *
 from classes import *
+from Lost import *
+
 
 MenuButton=Button(0,0,placeHolder,50,50)
 
@@ -16,5 +18,8 @@ def game():
             Player1.draw()
             if MenuButton.drawClick():
                 menu()
+               if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_d:
+                    MenuLost()
             pygame.display.update()
             clock.tick(60)
