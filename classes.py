@@ -1,4 +1,9 @@
 from Variables import *
+def approach(start, end, shift):
+    if start < end:
+        return min(start+shift,end)
+    else:
+        return max(start-shift,end)
 
 class mur():
     def __init__(self, image,x,w):
@@ -22,6 +27,7 @@ class oiseau():
         self.rect.y=self.y
         self.dir = 1
         self.vitesseHorizontale = 1
+        self.vitesseVerticale = 0
         self.gravite = 5
         self.mur1 = mur1
         self.mur2 = mur2
@@ -42,3 +48,11 @@ class oiseau():
     def draw(self):
         screen.blit(self.sprite,(self.x,self.y))
 
+    def mouvY(self, jump):
+        if jump == False:
+            self.vitesseVerticale= approach(self.vitesseVerticale,5,0.1)
+        else:
+            self.vitesseVerticale= -5
+        self.y += self.vitesseVerticale
+
+    

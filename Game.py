@@ -25,6 +25,8 @@ def game():
         mur2.draw()
         Player1.mouvX()
         Player1.draw()
+        isJumping = 0
+        Player1.mouvY(isJumping)
         if MenuButton.drawClick():
             menu() 
         pygame.display.update()
