@@ -9,7 +9,6 @@ MenuButton=Button(0,0,placeHolder,50,50)
 def game():
     mur1=mur(placeHolder,0,20)
     mur2=mur(placeHolder,480,20)
-    mur3=mur(placeHolder,200,20)
     Player1=oiseau(oiseauImg,250,250,mur1,mur2)
     from Menu import menu
     while True:
@@ -25,9 +24,11 @@ def game():
         mur2.draw()
         Player1.mouvX()
         Player1.draw()
-        isJumping = 0
+        isJumping = pygame.key.get_pressed()[pygame.K_SPACE]
         Player1.mouvY(isJumping)
+        if Player1.y>500:
+            MenuLost()
         if MenuButton.drawClick():
             menu() 
         pygame.display.update()
-        clock.tick(120)
+        clock.tick(60)

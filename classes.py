@@ -26,7 +26,7 @@ class oiseau():
         self.y = y
         self.rect.y=self.y
         self.dir = 1
-        self.vitesseHorizontale = 1
+        self.vitesseHorizontale = 5
         self.vitesseVerticale = 0
         self.gravite = 5
         self.mur1 = mur1
@@ -50,9 +50,9 @@ class oiseau():
 
     def mouvY(self, jump):
         if jump == False:
-            self.vitesseVerticale= approach(self.vitesseVerticale,5,0.1)
+            self.vitesseVerticale= approach(self.vitesseVerticale,8,0.5)
         else:
-            self.vitesseVerticale= -5
+            self.vitesseVerticale= -7
         self.y += self.vitesseVerticale
 
     
