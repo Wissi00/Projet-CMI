@@ -41,4 +41,4 @@ def game():
         if MenuButton.drawClick():
             menu() 
         pygame.display.update()
-        clock.tick(100)
+        clock.tick(60)
