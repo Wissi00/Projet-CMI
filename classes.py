@@ -1,4 +1,5 @@
 from Variables import *
+
 def approach(start, end, shift):
     if start < end:
         return min(start+shift,end)
@@ -55,6 +56,12 @@ class oiseau():
         else:
             self.vitesseVerticale= -7
         self.y += self.vitesseVerticale
+        global hauteur
+        hauteur += max(0,(plafond-(self.y + self.vitesseVerticale)))
+        if hauteur > 10:
+            hauteur += 1
+        self.y = max(plafond, self.y)
+        
         self.rect.y=self.y
         self.rect.x=self.x
 
