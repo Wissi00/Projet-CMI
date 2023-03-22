@@ -47,6 +47,7 @@ class oiseau():
 
     def draw(self):
         screen.blit(self.sprite,(self.x,self.y))
+      #  pygame.draw.rect(screen, (255, 0, 0), self.rect, 2)
 
     def mouvY(self, jump):
         if jump == False:
@@ -54,5 +55,27 @@ class oiseau():
         else:
             self.vitesseVerticale= -7
         self.y += self.vitesseVerticale
+        self.rect.y=self.y
+        self.rect.x=self.x
 
-    
+class spike():
+    def __init__(self, imagepique, x, y, h, w):
+        self.sprite = imagepique
+        self.rect=self.sprite.get_rect()
+        self.x = x 
+        self.rect.x=self.x
+        self.y = y
+        self.rect.y=self.y
+        self.h = h
+        self.w = w
+        self.A=(self.x, self.y)
+        self.B=(self.x+self.w,self.y+(self.h)/2)
+        self.C=(self.x, self.y+self.h)
+        self.vertices = [self.A, self.B, self.C]
+
+
+
+    def draw(self):
+        screen.blit(self.sprite,(self.x,self.y))
+        pygame.draw.polygon(screen, (255, 0, 0), self.vertices, 2)
+
