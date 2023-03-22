@@ -12,7 +12,7 @@ def game():
     mur2=mur(placeHolder,480,20)
     Player1=oiseau(oiseauImg,250,250,mur1,mur2)
     piques=[]
-    pique1=spike(piqueImg,0,250,98,98)
+    pique1=spike(300,"Left")
     piques.append(pique1)
     from Menu import menu
     #Game Loop ------------------------------------------------------------
