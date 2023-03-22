@@ -27,9 +27,8 @@ def game():
         for pique in piques:
             for point in Player1.rectpoints:
                 if inTriangle(pique.A,pique.B,pique.C, point)==True:
-                    print("in triangle")
                     MenuLost()
-        if pygame.key.get_pressed()[pygame.K_SPACE]:
+        if isJumping:
             if jumpdispo:
                 isJumping = True
                 jumpdispo = False
