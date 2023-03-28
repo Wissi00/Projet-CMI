@@ -49,7 +49,6 @@ class oiseau():
     def draw(self):
         screen.blit(self.sprite,(self.x,self.y))
       #  pygame.draw.rect(screen, (255, 0, 0), self.rect, 2)
-        pygame.draw.rect(screen, (255, 0, 0), self.rect, 2)
 
     def mouvY(self, jump):
         if jump == False:
