@@ -10,10 +10,10 @@ def MenuLost():
             if event.type == pygame.QUIT: 
                 pygame.quit()
                 sys.exit()
-            screen.blit(Fond2,(0,0))
-            if StartButton.drawClick():
-               game()
-            if ExitButton.drawClick():
-                pygame.quit()
-                sys.exit()
-            pygame.display.update() 
+        screen.blit(Fond2,(0,0))
+        if StartButton.drawClick():
+            game()
+        if ExitButton.drawClick():
+            pygame.quit()
+            sys.exit()
+        pygame.display.update() 
