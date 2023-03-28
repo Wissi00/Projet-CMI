@@ -1,13 +1,12 @@
 import pygame
 from Buttons import Button
-from pygame.locals import *
 
 global hauteur 
 hauteur = 0
 global plafond
 plafond = 150
-size = [500,500]
-screen = pygame.display.set_mode(size, RESIZABLE)
+size = [600,600]
+screen = pygame.display.set_mode(size)
 placeHolder=pygame.image.load("sprites/placeHolder.png")
 Jouer=pygame.image.load("sprites/Jouer.png")
 Power=pygame.image.load("sprites/Power.png")

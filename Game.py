@@ -21,14 +21,7 @@ def game():
             if event.type == pygame.QUIT: 
                 pygame.quit()
                 sys.exit()
-        isJumping = pygame.key.get_pressed()[pygame.K_SPACE]
-        Player1.mouvY(isJumping)
-        Player1.rectpoints=[Player1.rect.topleft,Player1.rect.topright,Player1.rect.bottomleft,Player1.rect.bottomright,Player1.rect.center,Player1.rect.midtop,Player1.rect.midbottom,Player1.rect.midleft,Player1.rect.midright]
-        for pique in piques:
-            for point in Player1.rectpoints:
-                if inTriangle(pique.A,pique.B,pique.C, point)==True:
-                    MenuLost()
-        if isJumping:
+        if pygame.key.get_pressed()[pygame.K_SPACE]:
             if jumpdispo:
                 isJumping = True
                 jumpdispo = False
@@ -39,6 +32,12 @@ def game():
             if jumpdispo == False:
                 jumpdispo = True
                 isJumping = False
+        Player1.mouvY(isJumping)
+        Player1.rectpoints=[Player1.rect.topleft,Player1.rect.topright,Player1.rect.bottomleft,Player1.rect.bottomright,Player1.rect.center,Player1.rect.midtop,Player1.rect.midbottom,Player1.rect.midleft,Player1.rect.midright]
+        for pique in piques:
+            for point in Player1.rectpoints:
+                if inTriangle(pique.A,pique.B,pique.C, point)==True:
+                    MenuLost()
         Player1.mouvY(isJumping)
         for pique in piques:
             for point in CirclePoints(Player1.rect.w/2, Player1.rect.center):

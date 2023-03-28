@@ -1,7 +1,7 @@
 import pygame
 from Variables import *
 
-screen = pygame.display.set_mode((500, 500))
+screen = pygame.display.set_mode((500, 600))
 
 class Button():
     def __init__(self,x,y,image,w,h):
