@@ -5,7 +5,7 @@ from Lost import *
 from Functions import *
 
 
-MenuButton=Button(0,0,placeHolder,50,50)
+MenuButton=Button(0,0,Jouer,50,50)
 def game():
     jumpdispo = True
     mur1=mur(placeHolder,0,20)
@@ -23,6 +23,11 @@ def game():
                 sys.exit()
         isJumping = pygame.key.get_pressed()[pygame.K_SPACE]
         Player1.mouvY(isJumping)
+        Player1.rectpoints=[Player1.rect.topleft,Player1.rect.topright,Player1.rect.bottomleft,Player1.rect.bottomright,Player1.rect.center,Player1.rect.midtop,Player1.rect.midbottom,Player1.rect.midleft,Player1.rect.midright]
+        for pique in piques:
+            for point in Player1.rectpoints:
+                if inTriangle(pique.A,pique.B,pique.C, point)==True:
+                    MenuLost()
         if isJumping:
             if jumpdispo:
                 isJumping = True
@@ -34,6 +39,7 @@ def game():
             if jumpdispo == False:
                 jumpdispo = True
                 isJumping = False
+        Player1.mouvY(isJumping)
         for pique in piques:
             for point in CirclePoints(Player1.rect.w/2, Player1.rect.center):
                 if inTriangle(pique.A,pique.B,pique.C, point)==True:
@@ -41,7 +47,7 @@ def game():
                     print(Player1.x,Player1.y)
                     MenuLost()
         #Display ------------------------------------------------------------
-        screen.fill((255,255,255))
+        screen.blit(Fond,(0,0))
         Player1.mouvY(isJumping)
         mur1.draw()
         mur2.draw()
@@ -50,7 +56,5 @@ def game():
         pique1.draw()
         if Player1.y>500:
             MenuLost()
-        if MenuButton.drawClick():
-            menu() 
         pygame.display.update()
         clock.tick(60)

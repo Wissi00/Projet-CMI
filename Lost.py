@@ -4,16 +4,16 @@ MenuButtonLost=Button(225,225,placeHolder,50,50)
 
 def MenuLost():
     from Menu import menu
+    from Game import game
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT: 
                 pygame.quit()
                 sys.exit()
-            screen.fill((255,255,255))
-            if MenuButtonLost.drawClick():
-                menu()
+            screen.blit(Fond2,(0,0))
+            if StartButton.drawClick():
+               game()
             if ExitButton.drawClick():
-                print("Adieu")
                 pygame.quit()
                 sys.exit()
             pygame.display.update() 

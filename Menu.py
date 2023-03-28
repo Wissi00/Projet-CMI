@@ -10,11 +10,11 @@ def menu():
             if event.type == pygame.QUIT: 
                 pygame.quit()
                 sys.exit()
-            screen.fill((255,255,255))
+            screen.blit(Fond2,(0,0))
             if StartButton.drawClick():
                 game()
             if ExitButton.drawClick():
-                print("Exit")
+                pygame.quit()
             pygame.display.update()
             clock.tick(60)
 
