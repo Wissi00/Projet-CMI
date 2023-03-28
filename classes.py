@@ -96,5 +96,5 @@ class spike():
     def draw(self):
         screen.blit(self.sprite,(self.rect))
        # pygame.draw.rect(screen, (255, 0, 0), self.rect, 2)
-     #   pygame.draw.polygon(screen, (255, 0, 0), self.vertices, 2)
-        pygame.draw.polygon(screen, (255, 0, 0), self.vertices, 2)
+    #    pygame.draw.polygon(screen, (255, 0, 0), self.vertices, 2)
+
