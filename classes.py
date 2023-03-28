@@ -1,5 +1,16 @@
 from Variables import *
 
+
+
+def generationPics(_tableauPicsPos, _cote):
+    _tabPicsARenvoyer = []
+    for _pos in range(len(_tableauPicsPos)):
+        if _tableauPicsPos[_pos] == 1:
+            _tabPicsARenvoyer.append(spike(50*_pos, _cote))
+    return _tabPicsARenvoyer
+
+
+
 def approach(start, end, shift):
     if start < end:
         return min(start+shift,end)
@@ -97,3 +108,12 @@ class spike():
        # pygame.draw.rect(screen, (255, 0, 0), self.rect, 2)
     #    pygame.draw.polygon(screen, (255, 0, 0), self.vertices, 2)
 
+class murEtPics():
+    def __init__(self,id):
+        self.picsPositions = [0, 0, 0, 1, 0, 0, 0, 1, 0, 0]
+        self.id = id
+        self.yInit= -500+(id*500)
+        self.y = self.yInit
+        self.cote = "Left"
+        self.picsGeneres = True
+        self.pics = generationPics(self.picsPositions, self.cote)

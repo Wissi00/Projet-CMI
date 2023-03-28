@@ -5,11 +5,11 @@ from Lost import *
 from Functions import *
 
 
-MenuButton=Button(0,0,Jouer,50,50)
 def game():
     jumpdispo = True
     mur1=mur(placeHolder,0,20)
-    mur2=mur(placeHolder,480,20)
+    mur2=mur(placeHolder,taille[1]-20,20)
+    mursGauche=[murEtPics(0),murEtPics(1),murEtPics(2)]
     Player1=oiseau(oiseauImg,250,250,mur1,mur2)
     piques=[]
     pique1=spike(300,"Left")
@@ -38,13 +38,33 @@ def game():
             for point in Player1.rectpoints:
                 if inTriangle(pique.A,pique.B,pique.C, point)==True:
                     MenuLost()
-        Player1.mouvY(isJumping)
-        for pique in piques:
-            for point in CirclePoints(Player1.rect.w/2, Player1.rect.center):
-                if inTriangle(pique.A,pique.B,pique.C, point)==True:
-                    print(point)
-                    print(Player1.x,Player1.y)
-                    MenuLost()
+        for murGauche in mursGauche :
+            #Remettre le mur en haut et générer de nouveaux pics
+            if murGauche.y > 500:
+                murGauche.y = -500
+                murGauche.picsPositions = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+                murGauche.pics = generationPics(murGauche.picsPositions, murGauche.cote)
+            #Actualiser la hauteur des murs
+            else:
+                murGauche.y = murGauche.yInit + (hauteur%1000)
+            #Pics---Affichage et collision
+            for pique in murGauche.pics:
+                #Actualiser la position des pics
+                pique.y = murGauche.y 
+                #Collision
+                for point in CirclePoints(Player1.rect.w/2, Player1.rect.center):
+                    if inTriangle(pique.A,pique.B,pique.C, point)==True:
+                        print(point)
+                        print(Player1.x,Player1.y)
+                        MenuLost()
+                #Affichage 
+                pique.draw()
+#        for pique in piques:
+#            for point in CirclePoints(Player1.rect.w/2, Player1.rect.center):
+#                if inTriangle(pique.A,pique.B,pique.C, point)==True:
+#                    print(point)
+#                    print(Player1.x,Player1.y)
+#                    MenuLost()
         #Display ------------------------------------------------------------
         screen.blit(Fond,(0,0))
         Player1.mouvY(isJumping)

@@ -1,20 +1,31 @@
 import pygame
 from Buttons import Button
+from PIL import Image
+from pygame.locals import *
+
+
+taille = [500,500]
+fond = Image.open("sprites/Fond.png")
+fond = fond.resize((taille[0], taille[1]))
+fond.save("sprites/Fondr.png")
+fond2 = Image.open("sprites/Fond2.png")
+fond2 = fond2.resize((taille[0], taille[1]))
+fond2.save("sprites/Fond2r.png")
 
 global hauteur 
 hauteur = 0
 global plafond
-plafond = 150
-size = [600,600]
-screen = pygame.display.set_mode(size)
+plafond = taille[0]*2/5
+screen = pygame.display.set_mode(taille)
+
 placeHolder=pygame.image.load("sprites/placeHolder.png")
 Jouer=pygame.image.load("sprites/Jouer.png")
 Power=pygame.image.load("sprites/Power.png")
-Fond=pygame.image.load("sprites/Fond.png")
-Fond2=pygame.image.load("sprites/Fond2.png")
+Fond=pygame.image.load("sprites/Fondr.png")
+Fond2=pygame.image.load("sprites/Fond2r.png")
 piqueImg=pygame.image.load("sprites/pique.png")
-StartButton=Button(200,225,Jouer,100,50)
-ExitButton=Button (425,10,Power,50,50)
+StartButton=Button(taille[0]/2.5,taille[1]/2.22,Jouer,taille[0]/5,taille[1]/10)
+ExitButton=Button(taille[0]/1.15,taille[1]/50,Power,taille[0]/10,taille[1]/10)
 oiseauImg=pygame.image.load("sprites/oiseau.png")
 clock=pygame.time.Clock()
 rect = screen.get_rect()

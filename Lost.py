@@ -16,4 +16,4 @@ def MenuLost():
         if ExitButton.drawClick():
             pygame.quit()
             sys.exit()
-        pygame.display.update() 
+        pygame.display.update()
