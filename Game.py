@@ -50,21 +50,22 @@ def game():
             #Pics---Affichage et collision
             for pique in murGauche.pics:
                 #Actualiser la position des pics
-                pique.y = murGauche.y 
+                pique.y = 100
                 #Collision
                 for point in CirclePoints(Player1.rect.w/2, Player1.rect.center):
                     if inTriangle(pique.A,pique.B,pique.C, point)==True:
                         print(point)
                         print(Player1.x,Player1.y)
                         MenuLost()
-                #Affichage 
+                #Affichage
+            for pique in murGauche.pics:
                 pique.draw()
-#        for pique in piques:
-#            for point in CirclePoints(Player1.rect.w/2, Player1.rect.center):
-#                if inTriangle(pique.A,pique.B,pique.C, point)==True:
-#                    print(point)
-#                    print(Player1.x,Player1.y)
-#                    MenuLost()
+        for pique in piques:
+            for point in CirclePoints(Player1.rect.w/2, Player1.rect.center):
+                if inTriangle(pique.A,pique.B,pique.C, point)==True:
+                    print(point)
+                    print(Player1.x,Player1.y)
+                    MenuLost()
         #Display ------------------------------------------------------------
         screen.blit(Fond,(0,0))
         Player1.mouvY(isJumping)
