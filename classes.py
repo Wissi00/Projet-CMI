@@ -59,22 +59,22 @@ class oiseau():
 
     def draw(self):
         screen.blit(self.sprite,(self.x,self.y))
-      #  pygame.draw.rect(screen, (255, 0, 0), self.rect, 2)
+    #  pygame.draw.rect(screen, (255, 0, 0), self.rect, 2)
 
-    def mouvY(self, jump):
+    def mouvY(self, jump, hauteur):
         if jump == False:
             self.vitesseVerticale= approach(self.vitesseVerticale,3,0.1)
         else:
             self.vitesseVerticale= -4
         self.y += self.vitesseVerticale
-        global hauteur
-        hauteur += max(0,(plafond-(self.y + self.vitesseVerticale)))
-        if hauteur > 10:
-            hauteur += 1
+        if 0 < max(0,(plafond-(self.y + self.vitesseVerticale))):
+            hauteur += max(0,(plafond-(self.y + self.vitesseVerticale)))
         self.y = max(plafond, self.y)
         
         self.rect.y=self.y
         self.rect.x=self.x
+        
+        return hauteur
 
 class spike():
     def __init__(self, y, s):
@@ -105,15 +105,15 @@ class spike():
 
     def draw(self):
         screen.blit(self.sprite,(self.rect))
-       # pygame.draw.rect(screen, (255, 0, 0), self.rect, 2)
+    # pygame.draw.rect(screen, (255, 0, 0), self.rect, 2)
     #    pygame.draw.polygon(screen, (255, 0, 0), self.vertices, 2)
 
 class murEtPics():
-    def __init__(self,id):
-        self.picsPositions = [0, 0, 0, 1, 0, 0, 0, 1, 0, 0]
+    def __init__(self,id, cote):
+        self.picsPositions = [1, 0, 0, 1, 0, 0, 0, 1, 0, 0]
         self.id = id
         self.yInit= -500+(id*500)
         self.y = self.yInit
-        self.cote = "Left"
+        self.cote = cote
         self.picsGeneres = True
         self.pics = generationPics(self.picsPositions, self.cote)
