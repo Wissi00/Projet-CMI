@@ -54,21 +54,6 @@ def game():
                         print(point)
                         print(Player1.x,Player1.y)
                         MenuLost()
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
         #Display ------------------------------------------------------------
         screen.blit(Fond,(0,0))
         #Player1.mouvY(isJumping, )

@@ -63,7 +63,7 @@ class oiseau():
 
     def mouvY(self, jump, hauteur):
         if jump == False:
-            self.vitesseVerticale= approach(self.vitesseVerticale,3,0.1)
+            self.vitesseVerticale= approach(self.vitesseVerticale,7,0.3)
         else:
             self.vitesseVerticale= -4
         self.y += self.vitesseVerticale
