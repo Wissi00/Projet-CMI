@@ -27,6 +27,7 @@ class mur():
     
     def draw(self):    
         screen.blit(self.image,(self.x,0))
+        pygame.draw.rect(screen, (255, 0, 0), self.rect, 2)
         
 
 class oiseau():
@@ -59,7 +60,7 @@ class oiseau():
 
     def draw(self):
         screen.blit(self.sprite,(self.x,self.y))
-       # pygame.draw.rect(screen, (255, 0, 0), self.rect, 2) #Ne pas supprimer j'en ai besoin ~Wissam
+        pygame.draw.rect(screen, (255, 0, 0), self.rect, 2) #Ne pas supprimer j'en ai besoin ~Wissam
 
     def mouvY(self, jump, hauteur):
         if jump == False:
@@ -81,39 +82,48 @@ class spike():
         self.y = y
         self.h = 50
         self.w = 50
+        self.sprite=piqueImg
+        self.sprite=pygame.transform.scale(self.sprite,(self.w,self.h))
+        self.rect=self.sprite.get_rect()
         if s == "Right":
-            self.sprite=piqueImg
-            self.sprite=pygame.transform.scale(self.sprite,(self.w,self.h))
             self.sprite=pygame.transform.flip(self.sprite,True,False)
             self.x=500-self.w
             self.A=(self.x+self.w, self.y)
             self.B=(self.x,self.y+(self.h)/2)
             self.C=(self.x+self.w, self.y+self.h)
         if s == "Left":
-            self.sprite=piqueImg
-            self.sprite=pygame.transform.scale(self.sprite,(self.w,self.h))
             self.x=0
             self.A=(self.x, self.y)
             self.B=(self.x+self.w,self.y+(self.h)/2)
             self.C=(self.x, self.y+self.h)
-        self.rect=self.sprite.get_rect()
         self.rect.y=self.y
         self.rect.x=self.x
         self.vertices = [self.A, self.B, self.C]
-
+    
+    def update(self,s):
+        if s == "Right":
+            self.x=500-self.w
+            self.A=(self.x+self.w, self.y)
+            self.B=(self.x,self.y+(self.h)/2)
+            self.C=(self.x+self.w, self.y+self.h)
+        if s == "Left":
+            self.x=0
+            self.A=(self.x, self.y)
+            self.B=(self.x+self.w,self.y+(self.h)/2)
+            self.C=(self.x, self.y+self.h)
+        self.vertices = [self.A, self.B, self.C]
 
 
     def draw(self):
         screen.blit(self.sprite,(self.rect))
-    # pygame.draw.rect(screen, (255, 0, 0), self.rect, 2)
-    # pygame.draw.polygon(screen, (255, 0, 0), self.vertices, 2)
+        pygame.draw.rect(screen, (255, 0, 0), self.rect, 2)
+        pygame.draw.polygon(screen, (255, 0, 0), self.vertices, 2)
 
 class murEtPics():
-    def __init__(self,id, cote):
+    def __init__(self, cote):
         self.picsPositions = [1, 0, 0, 1, 0, 0, 0, 1, 0, 0]
-        self.id = id
-        self.yInit= -500+(id*500)
-        self.y = self.yInit
+        self.yInit= 0
+        self.y = 0
         self.cote = cote
-        self.picsGeneres = True
         self.pics = generationPics(self.picsPositions, self.cote)
+
