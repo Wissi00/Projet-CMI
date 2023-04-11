@@ -4,6 +4,7 @@ from classes import *
 from Lost import *
 from Functions import *
 
+
 nombreDeCouloirs = 3
 def creerMurs(nombreDeCouloirs):
     return 0
@@ -51,8 +52,8 @@ def game():
                 #Collision
                 for point in CirclePoints(Player1.rect.w/2, Player1.rect.center):
                     if inTriangle(pic.A,pic.B,pic.C, point)==True:
-                        print(point)
-                        print(Player1.x,Player1.y)
+                       #print(point)
+                     #   print(Player1.x,Player1.y)
                         MenuLost()
         #Display ------------------------------------------------------------
         screen.blit(Fond,(0,0))
@@ -68,7 +69,7 @@ def game():
             MenuLost()
         pygame.display.update()
         clock.tick(60)
-        print(mursGauche[0].y)
-        print(mursGauche[1].y)
-        print(mursGauche[2].y)
-        print(hauteur)
+        #print(mursGauche[0].y)
+        #print(mursGauche[1].y)
+      #  print(mursGauche[2].y)
+      #  print(hauteur)
