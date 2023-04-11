@@ -51,10 +51,13 @@ class oiseau():
             self.x+=self.vitesseHorizontale
         if self.dir==-1:
             self.x-=self.vitesseHorizontale
+            
         if pygame.Rect.colliderect(self.rect, self.mur1.rect):
             self.dir=1
+            self.sprite=pygame.transform.flip(self.sprite,True,False)
         if pygame.Rect.colliderect(self.rect, self.mur2.rect):
             self.dir=-1
+            self.sprite=pygame.transform.flip(self.sprite,True,False)
         self.rect.x=self.x+20
 
 
@@ -64,9 +67,9 @@ class oiseau():
 
     def mouvY(self, jump, hauteur):
         if jump == False:
-            self.vitesseVerticale= approach(self.vitesseVerticale,7,0.3)
+            self.vitesseVerticale= approach(self.vitesseVerticale,7,0.5)
         else:
-            self.vitesseVerticale= -4
+            self.vitesseVerticale= -8
         self.y += self.vitesseVerticale
         if 0 < max(0,(plafond-(self.y + self.vitesseVerticale))):
             hauteur += max(0,(plafond-(self.y + self.vitesseVerticale)))
@@ -117,7 +120,7 @@ class spike():
     def draw(self):
         screen.blit(self.sprite,(self.rect))
         pygame.draw.rect(screen, (255, 0, 0), self.rect, 2)
-        pygame.draw.polygon(screen, (255, 0, 0), self.vertices, 2)
+           pygame.draw.polygon(screen, (255, 0, 0), self.vertices, 2)
 
 class murEtPics():
     def __init__(self, cote):

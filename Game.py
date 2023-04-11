@@ -4,6 +4,7 @@ from classes import *
 from Lost import *
 from Functions import *
 
+
 nombreDeCouloirs = 3
 def creerMurs(nombreDeCouloirs):
     return 0
