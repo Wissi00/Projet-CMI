@@ -32,11 +32,11 @@ class mur():
 class oiseau():
     def __init__(self, imagepiaf, x, y,mur1,mur2):
         self.sprite = imagepiaf
-        self.rect=self.sprite.get_rect()
+        self.rect=pygame.Rect(0,0,60,60)
         self.x = x 
-        self.rect.x=self.x
+        self.rect.x=self.x+20
         self.y = y
-        self.rect.y=self.y
+        self.rect.y=self.y+20
         self.dir = 1
         self.vitesseHorizontale = 6
         self.vitesseVerticale = 0
@@ -54,12 +54,12 @@ class oiseau():
             self.dir=1
         if pygame.Rect.colliderect(self.rect, self.mur2.rect):
             self.dir=-1
-        self.rect.x=self.x
+        self.rect.x=self.x+20
 
 
     def draw(self):
         screen.blit(self.sprite,(self.x,self.y))
-    #  pygame.draw.rect(screen, (255, 0, 0), self.rect, 2)
+       # pygame.draw.rect(screen, (255, 0, 0), self.rect, 2) #Ne pas supprimer j'en ai besoin ~Wissam
 
     def mouvY(self, jump, hauteur):
         if jump == False:
@@ -71,7 +71,7 @@ class oiseau():
             hauteur += max(0,(plafond-(self.y + self.vitesseVerticale)))
         self.y = max(plafond, self.y)
         
-        self.rect.y=self.y
+        self.rect.y=self.y+20
         self.rect.x=self.x
         
         return hauteur
@@ -106,7 +106,7 @@ class spike():
     def draw(self):
         screen.blit(self.sprite,(self.rect))
     # pygame.draw.rect(screen, (255, 0, 0), self.rect, 2)
-    #    pygame.draw.polygon(screen, (255, 0, 0), self.vertices, 2)
+    # pygame.draw.polygon(screen, (255, 0, 0), self.vertices, 2)
 
 class murEtPics():
     def __init__(self,id, cote):
