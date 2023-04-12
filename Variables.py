@@ -12,9 +12,7 @@ fond2 = Image.open("sprites/Fond2.png")
 fond2 = fond2.resize((taille[0], taille[1]))
 fond2.save("sprites/Fond2r.png")
 
-global hauteur 
 hauteur = 0
-global plafond
 plafond = taille[0]*2/5
 screen = pygame.display.set_mode(taille)
 pixelfont=pygame.font.Font('Pixel.ttf',40)

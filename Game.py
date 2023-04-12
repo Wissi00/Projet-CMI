@@ -15,7 +15,6 @@ def game():
     mur1=mur(placeHolder,0,20)
     mur2=mur(placeHolder,taille[1]-20,20)
     Player1=oiseau(oiseauImg,250,250,mur1,mur2)
-    piques=[]
 
 
     #Initialisation des murs
@@ -85,8 +84,6 @@ def game():
                             MenuLost()
                     #INCREMENTER L'ITERATEUR
                     iterateurPic += 1
-
-        
 
 
 
