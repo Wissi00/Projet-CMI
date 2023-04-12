@@ -37,7 +37,7 @@ def generationPiquesPosition(hauteur):
             if liste[a]==0:
                 liste[a]=1
                 cpt+=1
-    print(liste)
+    return liste
         
 def afficherScore():
     screen.blit(scoreTexte,(242,10))

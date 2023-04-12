@@ -126,7 +126,7 @@ class spike():
 
 class murEtPics():
     def __init__(self, cote):
-        self.picsPositions = [1, 0, 0, 1, 0, 0, 0, 1, 0, 0]
+        self.picsPositions = [1, 0, 0, 0, 0, 0, 0, 0, 0, 1]
         self.yInit= 0
         self.y = 0
         self.cote = cote

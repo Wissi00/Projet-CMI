@@ -3,7 +3,7 @@ from Variables import *
 from classes import *
 from Lost import *
 from Functions import *
-
+from Score import *
 
 nombreDeCouloirs = 3
 def creerMurs(nombreDeCouloirs):
@@ -18,11 +18,11 @@ def game():
 
 
     #Initialisation des murs
-    mursGauche = [murEtPics("Left"), murEtPics("Left")]
-    mursDroit = [murEtPics("Right"), murEtPics("Right")]
-    for i in range(2):
-        mursGauche[i].yInit = -500 + (500*i)
-        mursDroit[i].yInit = -500 + (500*i)
+    mursGauche = [murEtPics("Left"), murEtPics("Left"), murEtPics("Left")]
+    mursDroit = [murEtPics("Right"), murEtPics("Right"), murEtPics("Right")]
+    for i in range(3):
+        mursGauche[i].yInit = -1500 + (500*i)
+        mursDroit[i].yInit = -1500 + (500*i)
         mursDroit[i].y     = mursDroit[i].yInit
         mursGauche[i].y     = mursGauche[i].yInit
 
@@ -45,11 +45,12 @@ def game():
             if jumpdispo == False:
                 jumpdispo = True
                 isJumping = False
+        #CALCUL DISTANCE VERTICALE PARCOURUE
         hauteur = Player1.mouvY(isJumping, hauteur)
         
         #Position murs, pics et collisions pics/joueur ////GAUCHE////    
         for murGauche in mursGauche:
-            murGauche.y = murGauche.yInit + (hauteur % 500)
+            murGauche.y = murGauche.yInit + (hauteur % 1000)
             iterateurPic = 0
             for i in range(10):
                 if murGauche.picsPositions[i] == 1:
@@ -62,13 +63,17 @@ def game():
                         if inTriangle(murGauche.pics[iterateurPic].A,murGauche.pics[iterateurPic].B,murGauche.pics[iterateurPic].C, point)==True:
                             print(point)
                             print(Player1.x,Player1.y)
-                            MenuLost()
+                            #MenuLost()
                     #INCREMENTER L'ITERATEUR
                     iterateurPic += 1
 
                     
         for murDroit in mursDroit:
-            murDroit.y = murDroit.yInit + (hauteur % 500)
+            #A-T-ON DEPASSE L'ECRAN ? SI OUI, CHANGER LE JEU DE PICSS
+            if murDroit.y > 500:#murDroit.y > murDroit.yInit + (hauteur % 1000):
+                murDroit.picsPositions = generationPiquesPosition(hauteur)
+                murDroit.pics = generationPics(murDroit.picsPositions, "Right")
+            murDroit.y = murDroit.yInit + (hauteur % 2000)
             iterateurPic = 0
             for i in range(10):
                 if murDroit.picsPositions[i] == 1:
@@ -81,7 +86,7 @@ def game():
                         if inTriangle(murDroit.pics[iterateurPic].A,murDroit.pics[iterateurPic].B,murDroit.pics[iterateurPic].C, point)==True:
                             print(point)
                             print(Player1.x,Player1.y)
-                            MenuLost()
+                            #MenuLost()
                     #INCREMENTER L'ITERATEUR
                     iterateurPic += 1
 
@@ -107,5 +112,5 @@ def game():
         clock.tick(60)
         #print(mursGauche[0].y)
         #print(mursGauche[1].y)
-        print(mursGauche[1].pics[0].y)
+        #print(mursGauche[1].pics[0].y)
 
