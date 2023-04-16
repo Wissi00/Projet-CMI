@@ -33,7 +33,7 @@ class mur():
 class oiseau():
     def __init__(self, imagepiaf, x, y,mur1,mur2):
         self.sprite = imagepiaf
-        self.rect=pygame.Rect(0,0,60,60)
+        self.rect=pygame.Rect(0,0,48,48)
         self.x = x 
         self.rect.x=self.x+20
         self.y = y
@@ -48,24 +48,26 @@ class oiseau():
 
     def mouvX(self):
         if self.dir==1:
-            self.rect.x=self.x+26
+            self.rect.x=self.x+21
             self.x+=self.vitesseHorizontale
         if self.dir==-1:
-            self.rect.x=self.x+14
+            self.rect.x=self.x+11
             self.x-=self.vitesseHorizontale
         if pygame.Rect.colliderect(self.mur1.rect,self.rect):
-            self.dir=1
-            self.sprite=pygame.transform.flip(self.sprite,True,False)
+            if self.dir==-1:
+                self.dir=1
+                self.sprite=pygame.transform.flip(self.sprite,True,False)
         if pygame.Rect.colliderect(self.rect, self.mur2.rect):
-            self.dir=-1
-            self.sprite=pygame.transform.flip(self.sprite,True,False)
+            if self.dir==1:
+                self.dir=-1
+                self.sprite=pygame.transform.flip(self.sprite,True,False)
             
             
 
 
     def draw(self):
         screen.blit(self.sprite,(self.x,self.y))
-        #pygame.draw.rect(screen, (255, 0, 0), self.rect, 2) #Ne pas supprimer j'en ai besoin ~Wissam
+        pygame.draw.rect(screen, (255, 0, 0), self.rect, 2) #Ne pas supprimer j'en ai besoin ~Wissam
 
     def mouvY(self, jump, hauteur):
         if jump == False:
@@ -77,7 +79,7 @@ class oiseau():
             hauteur += max(0,(plafond-(self.y + self.vitesseVerticale)))
         self.y = max(plafond, self.y)
         
-        self.rect.y=self.y+20
+        self.rect.y=self.y+15
         self.rect.x=self.x
         
         return hauteur
