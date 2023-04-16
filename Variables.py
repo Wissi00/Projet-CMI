@@ -30,5 +30,4 @@ oiseauImg = pygame.transform.scale(img, (100, 100))
 clock=pygame.time.Clock()
 rect = screen.get_rect()
 icon = pygame.image.load("sprites/oiseau.png")
-hauteur = 0
 scoreTexte= pixelfont.render(str(hauteur),True,(255,255,255))
