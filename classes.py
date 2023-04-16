@@ -67,13 +67,13 @@ class oiseau():
 
     def draw(self):
         screen.blit(self.sprite,(self.x,self.y))
-        pygame.draw.rect(screen, (255, 0, 0), self.rect, 2) #Ne pas supprimer j'en ai besoin ~Wissam
+        #pygame.draw.rect(screen, (255, 0, 0), self.rect, 2) #Ne pas supprimer j'en ai besoin ~Wissam
 
     def mouvY(self, jump, hauteur):
         if jump == False:
-            self.vitesseVerticale= approach(self.vitesseVerticale,7,0.5)
+            self.vitesseVerticale= approach(self.vitesseVerticale,7,0.8)
         else:
-            self.vitesseVerticale= -8
+            self.vitesseVerticale= -9
         self.y += self.vitesseVerticale
         if 0 < max(0,(plafond-(self.y + self.vitesseVerticale))):
             hauteur += max(0,(plafond-(self.y + self.vitesseVerticale)))
