@@ -70,8 +70,7 @@ def game():
                     #INCREMENTER L'ITERATEUR
                     iterateurPic += 1
 
-
-        #Position murs, pics et collisions pics/joueur ////DROIT////                       
+                    
         for murDroit in mursDroit:
             #A-T-ON DEPASSE L'ECRAN ? SI OUI, CHANGER LE JEU DE PICSS
             if murDroit.y > 500:#murDroit.y > murDroit.yInit + (hauteur % 1000):
@@ -117,5 +116,5 @@ def game():
         clock.tick(60)
         #print(mursGauche[0].y)
         #print(mursGauche[1].y)
-        #print(mursGauche[1].pics[0].y)
+        print(mursGauche[1].pics[0].y)
 

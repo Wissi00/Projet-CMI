@@ -5,7 +5,7 @@ def maxPiques():
 
 def generationPiquesPosition(hauteur):
     liste=[0]*10
-    if hauteur<30:
+    if hauteur<100:
         n=random.randint(2,3)
         cpt=0
         while cpt<n:
@@ -13,7 +13,7 @@ def generationPiquesPosition(hauteur):
             if liste[a]==0:
                 liste[a]=1
                 cpt+=1
-    elif hauteur<60:
+    elif hauteur<230:
         n=random.randint(4,5)
         cpt=0
         while cpt<n:
@@ -21,7 +21,7 @@ def generationPiquesPosition(hauteur):
             if liste[a]==0:
                 liste[a]=1
                 cpt+=1
-    elif hauteur<120:
+    elif hauteur<500:
         n=random.randint(6,7)
         cpt=0
         while cpt<n:
@@ -30,7 +30,7 @@ def generationPiquesPosition(hauteur):
                 liste[a]=1
                 cpt+=1
     else:
-        n=random.randint(6,8)
+        n=random.randint(3,6)
         cpt=0
         while cpt<n:
             a=random.randint(0,9)

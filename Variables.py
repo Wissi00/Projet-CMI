@@ -12,10 +12,11 @@ fond2 = Image.open("sprites/Fond2.png")
 fond2 = fond2.resize((taille[0], taille[1]))
 fond2.save("sprites/Fond2r.png")
 
+hauteur = 0
 plafond = taille[0]*2/5
-icon=pygame.image.load("sprites/oiseau.png")
 screen = pygame.display.set_mode(taille)
 pixelfont=pygame.font.Font('Pixel.ttf',40)
+scoreTexte=pixelfont.render((str(hauteur)), True, (255,255,255))
 placeHolder=pygame.image.load("sprites/placeHolder.png")
 Jouer=pygame.image.load("sprites/Jouer.png")
 Power=pygame.image.load("sprites/Power.png")
@@ -28,3 +29,6 @@ img=pygame.image.load("sprites/oiseau.png")
 oiseauImg = pygame.transform.scale(img, (100, 100))
 clock=pygame.time.Clock()
 rect = screen.get_rect()
+icon = pygame.image.load("sprites/oiseau.png")
+hauteur = 0
+scoreTexte= pixelfont.render(str(hauteur),True,(255,255,255))
