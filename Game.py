@@ -29,6 +29,9 @@ def game():
     from Menu import menu
     #Game Loop ------------------------------------------------------------
     while True:
+        scoreTexte=pixelfont.render((str(int(hauteur)//100)), True, (255,255,255))
+        scoreTexteRect=scoreTexte.get_rect()
+        scoreTexteRect.center=(taille[0]/2, 50)
         #Entrée joueur
         for event in pygame.event.get():
             if event.type == pygame.QUIT: 
@@ -67,7 +70,8 @@ def game():
                     #INCREMENTER L'ITERATEUR
                     iterateurPic += 1
 
-                    
+
+        #Position murs, pics et collisions pics/joueur ////DROIT////                       
         for murDroit in mursDroit:
             #A-T-ON DEPASSE L'ECRAN ? SI OUI, CHANGER LE JEU DE PICSS
             if murDroit.y > 500:#murDroit.y > murDroit.yInit + (hauteur % 1000):
@@ -104,6 +108,7 @@ def game():
         for murDroit in mursDroit:
             for pic in murDroit.pics:
                 pic.draw()
+        screen.blit(scoreTexte,scoreTexteRect)
         Player1.draw()
         if Player1.y>500:
             MenuLost()
