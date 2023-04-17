@@ -37,7 +37,7 @@ screen = pygame.display.set_mode(taille)
 clock=pygame.time.Clock()
 rect = screen.get_rect()
 
-#Text-----------------------------------------------------------------------------------------------
+#Texte-----------------------------------------------------------------------------------------------
 
 pixelfont=pygame.font.Font('Pixel.ttf',40)
 pixelfont30=pygame.font.Font('Pixel.ttf',30)
