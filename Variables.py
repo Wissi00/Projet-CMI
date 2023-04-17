@@ -5,8 +5,7 @@ from pygame.locals import *
 pygame.init()
 
 taille = [500,500]
-fond = Image.open("sprites/Fond.png")
-fond = fond.resize((taille[0], taille[1]))
+fond = Image.open("sprites/FondA.png")
 fond.save("sprites/Fondr.png")
 fond2 = Image.open("sprites/Fond2.png")
 fond2 = fond2.resize((taille[0], taille[1]))

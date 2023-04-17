@@ -8,7 +8,6 @@ from Score import *
 nombreDeCouloirs = 3
 def creerMurs(nombreDeCouloirs):
     return 0
-
 def game():
     hauteur = 0
     jumpdispo = True
@@ -29,6 +28,7 @@ def game():
     from Menu import menu
     #Game Loop ------------------------------------------------------------
     while True:
+        scroll=-1500+hauteur/100
         scoreTexte=pixelfont.render((str(int(hauteur)//100)), True, (255,255,255))
         scoreTexteRect=scoreTexte.get_rect()
         scoreTexteRect.center=(taille[0]/2, 50)
@@ -96,7 +96,7 @@ def game():
 
 
         #Display ------------------------------------------------------------
-        screen.blit(Fond,(0,0))
+        screen.blit(Fond,(0,scroll))
         #Player1.mouvY(isJumping, )
         mur1.draw()
         mur2.draw()
