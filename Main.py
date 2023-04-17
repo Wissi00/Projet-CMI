@@ -4,5 +4,5 @@ from Menu import menu
 
 pygame.init()
 pygame.display.set_icon(icon)
-pygame.display.set_caption("L'oiseau qui saute")
+pygame.display.set_caption("Floppy Ascent")
 menu()  
