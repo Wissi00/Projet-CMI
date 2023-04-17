@@ -18,5 +18,3 @@ def CirclePoints(r,m):
     for i in range (0,360):
         circlePoints.append([m[0]+r*cos(radians(i)),m[1]-r*sin(radians(i))])
     return circlePoints
-
-#print(CirclePoints(10, 250, 250))

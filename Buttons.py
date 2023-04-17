@@ -12,7 +12,7 @@ class Button():
         self.rect.topleft= (x,y)
         self.clicked = False
 
-    def drawClick(self): # Draw button on screen and check if pressed
+    def drawClick(self): 
         action = False
         pos=pygame.mouse.get_pos()
         if self.rect.collidepoint(pos):

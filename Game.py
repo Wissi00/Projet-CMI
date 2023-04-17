@@ -37,7 +37,6 @@ def game():
             MenuWin()
         scroll=-1500+hauteur/10
         #RÉINITIALISATION DES PICS, GÉNÉRATION DE NOUVEAUX PICS
-        #Le mur a-t-il reculé ? <= condition
         if yPremierMurFramePrecedente > mursDroit[0].y:
             mursDroit[0].picsPositions = generationPiquesPosition(hauteur=hauteur)
             mursDroit[0].pics = generationPics(mursDroit[0].picsPositions, "Right")

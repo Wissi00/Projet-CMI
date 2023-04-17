@@ -27,7 +27,6 @@ class mur():
     
     def draw(self):    
         screen.blit(self.image,(self.x,0))
-        #pygame.draw.rect(screen, (255, 0, 0), self.rect, 2)
         
 
 class oiseau():
@@ -67,7 +66,6 @@ class oiseau():
 
     def draw(self):
         screen.blit(self.sprite,(self.x,self.y))
-        #pygame.draw.rect(screen, (255, 0, 0), self.rect, 2) #Ne pas supprimer j'en ai besoin ~Wissam
 
     def mouvY(self, jump, hauteur):
         if jump == False:
@@ -123,8 +121,7 @@ class spike():
 
     def draw(self):
         screen.blit(self.sprite,(self.rect))
-        #pygame.draw.rect(screen, (255, 0, 0), self.rect, 2)
-        #pygame.draw.polygon(screen, (255, 0, 0), self.vertices, 2)
+
 
 class murEtPics():
     def __init__(self, cote):

@@ -1,5 +1,4 @@
 import random
-from Variables import scoreTexte,screen
 def maxPiques():
     return 8
 
@@ -38,8 +37,5 @@ def generationPiquesPosition(hauteur):
                 liste[a]=1
                 cpt+=1
     return liste
-        
-def afficherScore():
-    screen.blit(scoreTexte,(242,10))
     
 generationPiquesPosition(349)
