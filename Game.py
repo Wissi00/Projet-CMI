@@ -14,6 +14,8 @@ def game():
     mur1=mur(placeHolder,0,20)
     mur2=mur(placeHolder,taille[1]-20,20)
     Player1=oiseau(oiseauImg,250,250,mur1,mur2)
+    nuage1x=200
+    nuage2x=600
 
 
     #Initialisation des murs
@@ -34,6 +36,8 @@ def game():
         if scroll>=0:
             MenuWin()
         scroll=-1500+hauteur/10
+        nuage1Scroll=150+hauteur/10
+        nuage2Scroll=-200+hauteur/10
         #RÉINITIALISATION DES PICS, GÉNÉRATION DE NOUVEAUX PICS
         if yPremierMurFramePrecedente > mursDroit[0].y:
             mursDroit[0].picsPositions = generationPiquesPosition(hauteur=hauteur)
@@ -119,6 +123,10 @@ def game():
 
         #Display ------------------------------------------------------------
         screen.blit(Fond,(0,scroll))
+        screen.blit(nuageImg,(nuage1x,nuage1Scroll))
+        screen.blit(nuageImg,(nuage2x,nuage2Scroll))
+        nuage1x+=1
+        nuage2x-=1
         mur1.draw()
         mur2.draw()
         for murGauche in mursGauche: #dessin des pics gauche

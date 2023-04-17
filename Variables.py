@@ -12,6 +12,7 @@ taille = [500,500]
 Fond=pygame.image.load("sprites/Fond.png")
 Fond2=pygame.image.load("sprites/FondFlou.png")
 FondWin=pygame.image.load("sprites/FondWin.png")
+nuageImg=pygame.image.load("sprites/nuage.png")
 #Sprites
 
 placeHolder=pygame.image.load("sprites/placeHolder.png")
