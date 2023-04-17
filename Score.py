@@ -1,6 +1,4 @@
 import random
-def maxPiques():
-    return 8
 
 def generationPiquesPosition(hauteur):
     liste=[0]*10
