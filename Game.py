@@ -54,8 +54,6 @@ def game():
 
 
         scoreTexte=pixelfont.render((str(int(hauteur)//100)), True, (255,255,255))
-        scoreTexteRect=scoreTexte.get_rect()
-        scoreTexteRect.center=(taille[0]/2, 50)
         #Entrée joueur
         for event in pygame.event.get():
             if event.type == pygame.QUIT: 
@@ -100,7 +98,7 @@ def game():
                         if inTriangle(murGauche.pics[iterateurPic].A,murGauche.pics[iterateurPic].B,murGauche.pics[iterateurPic].C, point)==True:
                             print(point)
                             print(Player1.x,Player1.y)
-                            MenuLost()
+                            MenuLost(hauteur)
                     #INCREMENTER L'ITERATEUR
                     iterateurPic += 1             
         for murDroit in mursDroit:
@@ -116,7 +114,7 @@ def game():
                         if inTriangle(murDroit.pics[iterateurPic].A,murDroit.pics[iterateurPic].B,murDroit.pics[iterateurPic].C, point)==True:
                             print(point)
                             print(Player1.x,Player1.y)
-                            MenuLost()
+                            MenuLost(hauteur)
                     #INCREMENTER L'ITERATEUR
                     iterateurPic += 1
 
@@ -138,7 +136,7 @@ def game():
         screen.blit(scoreTexte,scoreTexteRect)
         Player1.draw()
         if Player1.y>taille[1]:
-            MenuLost()
+            MenuLost(hauteur)
         
         pygame.display.update()
         clock.tick(60)

@@ -49,10 +49,10 @@ class oiseau():
     def mouvX(self):
         if self.dir==1:
             self.rect.x=self.x+21
-            self.x+=self.vitesseHorizontale
+            self.x+=self.dir*self.vitesseHorizontale
         if self.dir==-1:
             self.rect.x=self.x+11
-            self.x-=self.vitesseHorizontale
+            self.x+=self.dir*self.vitesseHorizontale
         if pygame.Rect.colliderect(self.mur1.rect,self.rect):
             if self.dir==-1:
                 self.dir=1

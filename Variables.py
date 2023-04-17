@@ -26,7 +26,6 @@ StartButton=Button(taille[0]/2.5,taille[1]/2.22,Jouer,taille[0]/5,taille[1]/10)
 ExitButton=Button(taille[0]/1.15,taille[1]/50,Power,taille[0]/10,taille[1]/10)
 
 #Autres-----------------------------------------------------------------------------------------------
-
 hauteur = 0
 plafond = taille[0]*2/5
 screen = pygame.display.set_mode(taille)
@@ -37,3 +36,5 @@ rect = screen.get_rect()
 
 pixelfont=pygame.font.Font('Pixel.ttf',40)
 scoreTexte=pixelfont.render((str(hauteur)), True, (255,255,255))
+scoreTexteRect=scoreTexte.get_rect()
+scoreTexteRect.center=(taille[0]/2, 50)
