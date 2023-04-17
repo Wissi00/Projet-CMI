@@ -52,7 +52,7 @@ class oiseau():
         if self.dir==-1:
             self.rect.x=self.x+11
             self.x+=self.dir*self.vitesseHorizontale
-        if pygame.Rect.colliderect(self.mur1.rect,self.rect):
+        if pygame.Rect.colliderect(self.mur1.rect,self.rect): 
             if self.dir==-1:
                 self.dir=1
                 self.sprite=pygame.transform.flip(self.sprite,True,False)
@@ -105,7 +105,7 @@ class spike():
         self.rect.x=self.x
         self.vertices = [self.A, self.B, self.C]
     
-    def update(self,s):
+    def update(self,s): #met à jour les coordonnées des pics 
         if s == "Right":
             self.x=500-self.w
             self.A=(self.x+self.w, self.y)

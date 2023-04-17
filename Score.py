@@ -13,7 +13,7 @@ def generationPiquesPosition(hauteur):
                 liste[a]=1
                 cpt+=1
     elif hauteur<23000:
-        n=random.randint(4,5)
+        n=random.randint(3,4)
         cpt=0
         while cpt<n:
             a=random.randint(0,9)
@@ -21,7 +21,7 @@ def generationPiquesPosition(hauteur):
                 liste[a]=1
                 cpt+=1
     elif hauteur<50000:
-        n=random.randint(6,7)
+        n=random.randint(4,5)
         cpt=0
         while cpt<n:
             a=random.randint(0,9)

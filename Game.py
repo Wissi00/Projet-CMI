@@ -6,9 +6,6 @@ from Functions import *
 from Score import *
 from Win import *
 
-nombreDeCouloirs = 3
-def creerMurs(nombreDeCouloirs):
-    return 0
 
 def game():
     hauteur = 0
@@ -33,6 +30,7 @@ def game():
     from Menu import menu
     #Game Loop ------------------------------------------------------------
     while True:
+        scoreTexte=pixelfont.render((str(int(hauteur)//100)), True, (255,255,255))
         if scroll>=0:
             MenuWin()
         scroll=-1500+hauteur/10
@@ -50,9 +48,6 @@ def game():
         ySecondMurFramePrecedente = mursDroit[1].y
         yPremierMurFramePrecedente = mursDroit[0].y
 
-
-
-        scoreTexte=pixelfont.render((str(int(hauteur)//100)), True, (255,255,255))
         #Entrée joueur
         for event in pygame.event.get():
             if event.type == pygame.QUIT: 
@@ -82,8 +77,8 @@ def game():
         mursGauche[0].y = mursDroit[0].y
         mursGauche[1].y = mursDroit[1].y
 
-
-        #Position pics et collisions pics/joueur ////GAUCHE////    
+        Player1.mouvX()
+        #Position pics et collisions pics/joueur   
         for murGauche in mursGauche:
             iterateurPic = 0
             for i in range(10):
@@ -116,7 +111,8 @@ def game():
                             MenuLost(hauteur)
                     #INCREMENTER L'ITERATEUR
                     iterateurPic += 1
-
+        if Player1.y>taille[1]:
+            MenuLost(hauteur)
 
 
 
@@ -125,17 +121,14 @@ def game():
         screen.blit(Fond,(0,scroll))
         mur1.draw()
         mur2.draw()
-        Player1.mouvX()
-        for murGauche in mursGauche:
+        for murGauche in mursGauche: #dessin des pics gauche
             for pic in murGauche.pics:
                 pic.draw()
-        for murDroit in mursDroit:
+        for murDroit in mursDroit: #dessin des pics droit
             for pic in murDroit.pics:
                 pic.draw()
-        screen.blit(scoreTexte,scoreTexteRect)
+        screen.blit(scoreTexte,scoreTexteRect) #affichage du score
         Player1.draw()
-        if Player1.y>taille[1]:
-            MenuLost(hauteur)
         
         pygame.display.update()
         clock.tick(60)
