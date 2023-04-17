@@ -99,7 +99,7 @@ def game():
                         if inTriangle(murGauche.pics[iterateurPic].A,murGauche.pics[iterateurPic].B,murGauche.pics[iterateurPic].C, point)==True:
                             print(point)
                             print(Player1.x,Player1.y)
-                            #MenuLost(hauteur)
+                            MenuLost(hauteur)
                     #INCREMENTER L'ITERATEUR
                     iterateurPic += 1             
         for murDroit in mursDroit:
@@ -115,7 +115,7 @@ def game():
                         if inTriangle(murDroit.pics[iterateurPic].A,murDroit.pics[iterateurPic].B,murDroit.pics[iterateurPic].C, point)==True:
                             print(point)
                             print(Player1.x,Player1.y)
-                            #MenuLost(hauteur)
+                            MenuLost(hauteur)
                     #INCREMENTER L'ITERATEUR
                     iterateurPic += 1
         if Player1.y>taille[1]:
