@@ -4,6 +4,7 @@ from classes import *
 from Lost import *
 from Functions import *
 from Score import *
+from Win import *
 
 nombreDeCouloirs = 3
 def creerMurs(nombreDeCouloirs):
@@ -11,6 +12,7 @@ def creerMurs(nombreDeCouloirs):
 
 def game():
     hauteur = 0
+    scroll = -1500
     jumpdispo = True
     mur1=mur(placeHolder,0,20)
     mur2=mur(placeHolder,taille[1]-20,20)
@@ -31,6 +33,8 @@ def game():
     from Menu import menu
     #Game Loop ------------------------------------------------------------
     while True:
+        if scroll>=0:
+            MenuWin()
         scroll=-1500+hauteur/10
         #RÉINITIALISATION DES PICS, GÉNÉRATION DE NOUVEAUX PICS
         #Le mur a-t-il reculé ? <= condition
@@ -96,7 +100,7 @@ def game():
                         if inTriangle(murGauche.pics[iterateurPic].A,murGauche.pics[iterateurPic].B,murGauche.pics[iterateurPic].C, point)==True:
                             print(point)
                             print(Player1.x,Player1.y)
-                            #MenuLost()
+                            MenuLost()
                     #INCREMENTER L'ITERATEUR
                     iterateurPic += 1             
         for murDroit in mursDroit:
@@ -112,7 +116,7 @@ def game():
                         if inTriangle(murDroit.pics[iterateurPic].A,murDroit.pics[iterateurPic].B,murDroit.pics[iterateurPic].C, point)==True:
                             print(point)
                             print(Player1.x,Player1.y)
-                            #MenuLost()
+                            MenuLost()
                     #INCREMENTER L'ITERATEUR
                     iterateurPic += 1
 
@@ -122,7 +126,6 @@ def game():
 
         #Display ------------------------------------------------------------
         screen.blit(Fond,(0,scroll))
-        #Player1.mouvY(isJumping, )
         mur1.draw()
         mur2.draw()
         Player1.mouvX()
@@ -139,7 +142,4 @@ def game():
         
         pygame.display.update()
         clock.tick(60)
-        #print(mursGauche[0].y)
-        #print(mursGauche[1].y)
-        #print(mursGauche[1].pics[0].y)
 

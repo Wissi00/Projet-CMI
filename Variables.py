@@ -1,6 +1,5 @@
 import pygame
 from Buttons import Button
-from PIL import Image
 from pygame.locals import *
 pygame.init()
 
@@ -10,13 +9,8 @@ taille = [500,500]
 
 #Background
 
-fond = Image.open("sprites/FondA.png")
-fond.save("sprites/Fondr.png")
-fond2 = Image.open("sprites/FondA2.png")
-fond2 = fond2.resize((taille[0], taille[1]))
-fond2.save("sprites/Fond2r.png")
-Fond=pygame.image.load("sprites/Fondr.png")
-Fond2=pygame.image.load("sprites/Fond2r.png")
+Fond=pygame.image.load("sprites/FondA.png")
+Fond2=pygame.image.load("sprites/FondA2.png")
 #Sprites
 
 placeHolder=pygame.image.load("sprites/placeHolder.png")
