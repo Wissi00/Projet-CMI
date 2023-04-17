@@ -12,7 +12,6 @@ taille = [500,500]
 Fond=pygame.image.load("sprites/Fond.png")
 Fond2=pygame.image.load("sprites/FondFlou.png")
 FondWin=pygame.image.load("sprites/FondWin.png")
-nuageImg=pygame.image.load("sprites/nuage.png")
 #Sprites
 
 placeHolder=pygame.image.load("sprites/placeHolder.png")
@@ -20,6 +19,10 @@ piqueImg=pygame.image.load("sprites/pique.png")
 oiseauImg=pygame.image.load("sprites/oiseau.png")
 oiseauImg = pygame.transform.scale(oiseauImg, (80, 80))
 icon = pygame.image.load("sprites/oiseau.png")
+nuageImg=pygame.image.load("sprites/nuage.png")
+spaceShipImg=pygame.image.load("sprites/SpaceShip.png")
+spaceShipImg = pygame.transform.scale(spaceShipImg, (100, 120))
+spaceShipImg = pygame.transform.rotate(spaceShipImg, 90)
 
 #Boutons
 Jouer=pygame.image.load("sprites/Jouer.png")
