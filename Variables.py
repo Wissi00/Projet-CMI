@@ -11,6 +11,7 @@ taille = [500,500]
 
 Fond=pygame.image.load("sprites/FondA.png")
 Fond2=pygame.image.load("sprites/FondA2.png")
+FondWin=pygame.image.load("sprites/FondWin.png")
 #Sprites
 
 placeHolder=pygame.image.load("sprites/placeHolder.png")
@@ -35,6 +36,7 @@ rect = screen.get_rect()
 #Text-----------------------------------------------------------------------------------------------
 
 pixelfont=pygame.font.Font('Pixel.ttf',40)
+pixelfont30=pygame.font.Font('Pixel.ttf',30)
 scoreTexte=pixelfont.render((str(hauteur)), True, (255,255,255))
 scoreTexteRect=scoreTexte.get_rect()
 scoreTexteRect.center=(taille[0]/2, 50)
