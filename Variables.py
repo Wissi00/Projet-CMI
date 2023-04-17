@@ -9,8 +9,8 @@ taille = [500,500]
 
 #Background
 
-Fond=pygame.image.load("sprites/FondA.png")
-Fond2=pygame.image.load("sprites/FondA2.png")
+Fond=pygame.image.load("sprites/Fond.png")
+Fond2=pygame.image.load("sprites/FondFlou.png")
 FondWin=pygame.image.load("sprites/FondWin.png")
 #Sprites
 
